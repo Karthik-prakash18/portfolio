@@ -2,6 +2,9 @@ import React from 'react';
 import styled from "styled-components";
 import {Bio} from "../../data/constants";
 import Typewriter from "typewriter-effect";
+import HeroImg from "../../images/Kp.jpeg";
+import HeroBgAnimation from "../HeroBgAnimation";
+
 
 const HeroContainer = styled.div`
   display: flex;
@@ -48,7 +51,8 @@ const HeroLeftContainer = styled.div`
 const HeroRightContainer = styled.div`
   width: 100%;
   order: 2;
-  background: blue;
+  display: flex;
+  justify-content: end;
 
   @media (max-width: 960px) {
     order: 1;
@@ -121,13 +125,99 @@ const SubTitle = styled.div`
   }
 `;
 
+const ResumeButton = styled.a`
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
 
+  width: 95%;
+  max-width: 300px;
+  text-align: center;
+  padding: 16px 0;
+
+  background: hsla(271, 100%, 50%, 1);
+  background: linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+
+     &:hover {
+        transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow:  20px 20px 60px #1F2634,
+    filter: brightness(1);
+    }    
+    
+    
+    @media (max-width: 640px) {
+        padding: 12px 0;
+        font-size: 18px;
+    } 
+    color: white;
+`;
+
+const Img = styled.img`
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  border: 2px solid ${({ theme }) => theme.primary};
+
+  @media (max-width: 640px) {
+    max-width: 280px;
+    max-height: 280px;
+  }
+`;
+
+const HeroBg = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 1360px;
+  overflow: hidden;
+  padding: 0 30px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+
+  @media (max-width: 960px) {
+    justify-content: center;
+    padding: 0 0px;
+  }
+`;
 
 
 const Hero = () => {
   return (
     <div id="about">
       <HeroContainer>
+        <HeroBg>
+          <HeroBgAnimation />
+        </HeroBg>
         <HeroInnerContainer>
           <HeroLeftContainer>
             <Title>Hi, I am <br /> {Bio.name}</Title>
@@ -144,8 +234,11 @@ const Hero = () => {
               </Span> 
             </TextLoop>
             <SubTitle>{Bio.description}</SubTitle>
+            <ResumeButton>Check Resume</ResumeButton>
           </HeroLeftContainer>
-          <HeroRightContainer>Right</HeroRightContainer>
+          <HeroRightContainer>
+            <Img src={HeroImg} alt="Karthik Prakash" />
+          </HeroRightContainer>
         </HeroInnerContainer>
       </HeroContainer>
     </div>

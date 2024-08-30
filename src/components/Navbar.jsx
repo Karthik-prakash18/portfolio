@@ -133,7 +133,7 @@ const Navbar = () => {
   <Nav>
     <NavbarContainer>
     <NavLogo to="/">
-        GeekForGeeks
+        Karthik Prakash
     </NavLogo>
 
     <MobileIcon onClick={() => setIsOpen(!isOpen)}>
