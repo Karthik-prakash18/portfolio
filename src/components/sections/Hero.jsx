@@ -267,6 +267,6 @@ const Hero = () => {
       </HeroContainer>
     </div>
   )
-}
+};
 
-export default Hero
+export default Hero;

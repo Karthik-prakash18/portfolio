@@ -11,9 +11,6 @@ export const Bio = {
   resume:
     "https://drive.google.com/file/d/1txFKZD3LNIXMc329jD9c995AU8LItOXK/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/karthik-prakash28/",
-  twitter: "https://twitter.com/RishavChanda",
-  insta: "https://www.instagram.com/rishav_chanda/",
-  facebook: "https://www.facebook.com/rishav.chanda.165/",
 };
 
 export const skills = [
