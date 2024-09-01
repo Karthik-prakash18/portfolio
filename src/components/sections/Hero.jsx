@@ -4,6 +4,12 @@ import {Bio} from "../../data/constants";
 import Typewriter from "typewriter-effect";
 import HeroImg from "../../images/Kp.jpeg";
 import HeroBgAnimation from "../HeroBgAnimation";
+import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
+import { headContainerAnimation, headTextAnimation, headContentAnimation} from "../../utils/motion";
+import StarCanvas from "../canvas/Stars";
+
+
 
 
 const HeroContainer = styled.div`
@@ -216,30 +222,48 @@ const Hero = () => {
     <div id="about">
       <HeroContainer>
         <HeroBg>
+          <StarCanvas />
           <HeroBgAnimation />
         </HeroBg>
-        <HeroInnerContainer>
-          <HeroLeftContainer>
-            <Title>Hi, I am <br /> {Bio.name}</Title>
-            <TextLoop>
-              I am a
-              <Span>
-                <Typewriter
-                options={{
+
+        <motion.div {...headContainerAnimation}>
+          <HeroInnerContainer>
+            <HeroLeftContainer>
+              <motion.div {...headTextAnimation}>
+              <Title>Hi, I am <br /> {Bio.name}</Title>
+              <TextLoop>
+                I am a
+                <Span>
+                  <Typewriter
+                  options={{
                   strings: Bio.roles,
                   autoStart: true,
                   loop: true,
-                }}
+                  }}
                  />
-              </Span> 
-            </TextLoop>
-            <SubTitle>{Bio.description}</SubTitle>
-            <ResumeButton>Check Resume</ResumeButton>
-          </HeroLeftContainer>
-          <HeroRightContainer>
-            <Img src={HeroImg} alt="Karthik Prakash" />
-          </HeroRightContainer>
+                </Span> 
+              </TextLoop>
+              </motion.div>
+
+              <motion.div {...headContentAnimation}>
+              <SubTitle>{Bio.description}</SubTitle>
+              </motion.div>
+
+              <ResumeButton>Check Resume</ResumeButton>
+            </HeroLeftContainer>
+            <HeroRightContainer>
+
+            <motion.div {...headContentAnimation}>
+              <Tilt>
+                <Img src={HeroImg} alt="Karthik Prakash" />
+              </Tilt>
+              </motion.div>
+
+
+            </HeroRightContainer>
         </HeroInnerContainer>
+        </motion.div>
+        
       </HeroContainer>
     </div>
   )
